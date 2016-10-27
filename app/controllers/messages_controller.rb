@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 class MessagesController < ApplicationController
-  def create
+  skip_before_filter :verify_authenticity_token, only: :create
 
+  def create
+    message = Message.new(slack_params[:text])
+
+    head :ok
   end
 
   private
