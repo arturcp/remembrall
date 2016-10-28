@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Message
-  URL_REGEX = /(https?:\/\/(?:www.|(?!www))[^\s.]+.[^\s]{2,}|www.[^\s]+.[^\s]{2,})/
+  URL_REGEX = /<(https?:\/\/(?:www.|(?!www))[^\s.]+.[^\s]{2,}|www.[^\s]+.[^\s]{2,})>/
 
   def initialize(text = '')
     @text = text
