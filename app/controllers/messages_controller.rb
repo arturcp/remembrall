@@ -6,6 +6,10 @@ class MessagesController < ApplicationController
   def create
     message = Message.new(slack_params[:text])
 
+    message.urls.each do |url|
+      Article.build(slack_params[:user_name], url)
+    end
+
     head :ok
   end
 
