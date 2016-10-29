@@ -1,0 +1,53 @@
+.article-card {
+  box-shadow: 3px 3px 20px #000;
+  background-color: $card-background-color;
+  color: $card-color;
+
+  .card-action a {
+    color: $card-color !important;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+}
+
+.card .card-content .card-title {
+  line-height: 1;
+}
+
+.card-content {
+  background-color: #fff;
+  overflow: hidden;
+
+  @media only screen and (min-width: 993px) {
+    height: 215px;
+
+    .card-description {
+      height: 145px;
+      overflow: scroll;
+      margin-top: 15px;
+    }
+  }
+}
+
+.highlight {
+  background-color: $card-background-color;
+}
+
+#empty-result {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+
+  .card-panel {
+    width: 65%;
+    border-radius: 10px;
+  }
+}
+
+.card-tags {
+  background-color: #fff;
+  padding: 5px;
+  min-height: 42px;
+}

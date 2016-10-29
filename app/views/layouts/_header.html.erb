@@ -1,0 +1,48 @@
+<header id="header" class="page-topbar">
+  <div class="navbar-fixed">
+    <nav class="navbar-color purple darken-4">
+      <div class="nav-wrapper">
+
+        <ul class="left">
+          <li>
+            <h1 class="logo-wrapper">
+              <%= link_to root_path, { class: 'brand-logo darken-1' } do %>
+                <%= image_tag 'youse.png' %>
+              <% end %>
+            </h1>
+          </li>
+        </ul>
+
+        <%= form_tag root_path do %>
+          <div class="header-search-wrapper hide-on-med-and-down">
+            <i class="material-icons">search</i>
+            <input type="text" name="query" class="header-search-input z-depth-2"
+              placeholder="Procure um artigo" id="search" value="<%= @word if @word %>">
+
+            <div id="search-options">
+              <input class="with-gap" name="search_type" type="radio"
+                id="by-keyword" value="<%= SearchType::KEYWORD %>"
+                <%= 'checked' if @search_type == SearchType::KEYWORD %>
+              />
+              <label for="by-keyword">Palavras-chave</label>
+
+              <input class="with-gap" name="search_type" type="radio"
+                id="by-author" value="<%= SearchType::AUTHOR %>"
+                <%= 'checked' if @search_type == SearchType::AUTHOR %>
+              />
+              <label for="by-author">Autor</label>
+
+              <input class="with-gap" name="search_type" type="radio"
+                id="by-tag" value="<%= SearchType::TAG %>"
+                <%= 'checked' if @search_type == SearchType::TAG %>
+              />
+              <label for="by-tag">Tag</label>
+            </div>
+          </div>
+          <button class="btn dictionary-submit waves-effect waves-light hide-on-med-and-down" type="submit"
+            name="action" id="search-button">Buscar</button>
+        <% end %>
+      </div>
+    </nav>
+  </div>
+</header>

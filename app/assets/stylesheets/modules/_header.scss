@@ -1,0 +1,76 @@
+.logo-wrapper {
+  margin: 0 10px;
+
+  img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+.header-search-wrapper {
+  margin: 10px auto 0 240px;
+  width: calc(100% - 600px);
+  height: 40px;
+  display: inline-block;
+  position: relative;
+
+  i {
+    position: absolute;
+    font-size: 24px;
+    top: 6px;
+    left: 24px;
+    line-height: 32px !important;
+    -webkit-transition: color 200ms ease;
+    transition: color 200ms ease;
+  }
+}
+
+input.header-search-input {
+  display: block;
+  padding: 8px 8px 8px 72px;
+  width: 100%;
+  background: rgba(255,255,255,0.3);
+  height: 24px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  border: none;
+  font-size: 16px;
+  appearance: textfield;
+  font-weight: 400;
+  outline: none;
+  border-radius: 3px;
+}
+
+#search-button {
+  position: absolute;
+  top: 14px;
+  right: 125px;
+}
+
+#search-options {
+  width: 290px;
+  position: absolute;
+  right: -70px;
+  top: -10px;
+
+  label {
+    padding-left: 30px;
+    margin-right: 10px;
+    color: #fff;
+
+    &:before {
+      border: 2px solid $header-background-color;
+    }
+
+    &:after {
+      border: 2px solid $header-background-color;
+      background-color: $header-background-color;
+    }
+  }
+}
+
+.dictionary-submit {
+  box-shadow: 3px 3px 20px #000;
+  background-color: $card-background-color;
+  color: $card-color;
+}

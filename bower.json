@@ -1,0 +1,22 @@
+{
+  "name": "remembrall",
+  "homepage": "https://github.com/arturcp/remembrall",
+  "authors": [
+    "Artur <artur.prado@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "page": "lucasmazza/page.js#~0.4.0",
+    "almond": "0.3.1"
+  }
+}
