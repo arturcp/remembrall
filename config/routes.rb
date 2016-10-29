@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resource :message, only: :create
   resources :articles, only: :index
 
+  post 'articles/search', to: 'articles#search'
+  get 'articles/search', to: redirect('/articles')
+
   root 'articles#index'
 end

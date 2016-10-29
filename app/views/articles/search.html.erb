@@ -10,4 +10,12 @@
         tags: []
     %>
   <% end %>
+
+  <% if @articles.empty? %>
+    <div id="empty-result">
+      <div class="card-panel waves-effect waves-dark purple darken-4">
+        <span class="white-text">Nenhum resultado encontrado</span>
+      </div>
+    </div>
+  <% end %>
 </div>
