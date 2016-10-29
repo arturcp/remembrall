@@ -1,7 +1,6 @@
 module CardHelper
-  def format_description(description, query)
-    description
-      .gsub("\n", '<br />')
+  def highlighted_text(text, query)
+    text
       .gsub(/#{query}/i, "<span class='highlight'>#{query}</span>")
       .html_safe
   end

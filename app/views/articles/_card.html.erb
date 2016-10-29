@@ -6,9 +6,9 @@
       </div>
     <% end %>
     <div class="card-content">
-      <span class="card-title"><%= title %></span>
+      <span class="card-title"><%= highlighted_text(title, highlighted) %></span>
       <div class="card-description">
-        <%= format_description(description, highlighted) %>
+        <%= highlighted_text(description, highlighted) %>
       </div>
     </div>
     <div class="card-tags">
