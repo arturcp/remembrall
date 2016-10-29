@@ -25,6 +25,7 @@ gem 'pg'
 gem 'materialize-sass'
 gem 'link_thumbnailer'
 gem 'acts-as-taggable-on', '~> 4.0'
+gem 'acts_as_indexed'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
