@@ -17,9 +17,7 @@ class SearchResult
   private
 
   def search_by_keyword(query)
-    Article
-      .where("lower(title) like :query or lower(description) like :query", query: "%#{@query}%")
-      .order(created_at: :desc)
+    Article.with_query(query)
   end
 
   def search_by_author(query)
