@@ -9,12 +9,12 @@ define('search', [], function() {
 
   fn._bindEvents = function() {
     this.input.focus();
-    this.input.on('keyup', $.proxy(this._searchWord, this));
+    this.input.on('keyup', $.proxy(this._searchArticle, this));
 
     $(window).on('focus', $.proxy(this._selectTextOnSearchInput, this));
   };
 
-  fn._searchWord = function(e) {
+  fn._searchArticle = function(e) {
     var enterKeyCode = 13;
     if (e.keyCode === enterKeyCode) {
       $('body').removeClass('loaded');

@@ -1,33 +1,21 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  before_action :search_type, :search_word
+  before_action :search_data
 
   def index
-    @articles = Article.all.limit(SearchResult::PAGE_SIZE)
+    @articles = SearchResult.new(search_type: @search_type).articles
   end
 
   def search
-    @articles = SearchResult.new(
-      query: "%#{@word}%",
-      search_type: @search_type
-    ).articles
+    @articles = SearchResult.new(query: "%#{@query}%",
+      search_type: @search_type).articles
   end
 
   private
 
-  def search_params
-    @search_params ||= params.permit(
-      :query,
-      :search_type
-    )
-  end
-
-  def search_type
-    @search_type = search_params[:search_type] || SearchType::KEYWORD
-  end
-
-  def search_word
-    @word = search_params[:query]
+  def search_data
+    @search_type = params[:search_type] || SearchType::KEYWORD
+    @query = params[:query]
   end
 end

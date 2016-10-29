@@ -24,7 +24,7 @@ class SearchResult
 
   def search_by_author(query)
     Article
-      .where("author_name = :name", name: "%#{@query}%")
+      .where("lower(author_name) like :name", name: "%#{@query}%")
       .order(created_at: :desc)
   end
 
