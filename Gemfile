@@ -24,6 +24,7 @@ gem 'materialize-sass'
 gem 'link_thumbnailer'
 gem 'acts_as_indexed'
 gem 'will_paginate', '~> 3.1.0'
+gem 'slack-api'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
