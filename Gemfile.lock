@@ -38,8 +38,6 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts-as-taggable-on (4.0.0)
-      activerecord (>= 4.0)
     acts_as_indexed (0.8.3)
     ansi (1.5.0)
     arel (7.1.4)
@@ -247,7 +245,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on (~> 4.0)
   acts_as_indexed
   byebug
   coffee-rails (~> 4.2)

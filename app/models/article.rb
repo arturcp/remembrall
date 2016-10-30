@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Article < ActiveRecord::Base
-  acts_as_taggable
   acts_as_indexed fields: [:title, :description]
 
   def self.build(author_name, url)

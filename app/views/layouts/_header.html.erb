@@ -30,13 +30,7 @@
                 id="by-author" value="<%= SearchType::AUTHOR %>"
                 <%= 'checked' if @search_type == SearchType::AUTHOR %>
               />
-              <label for="by-author">Autor</label>
-
-              <input class="with-gap" name="search_type" type="radio"
-                id="by-tag" value="<%= SearchType::TAG %>"
-                <%= 'checked' if @search_type == SearchType::TAG %>
-              />
-              <label for="by-tag">Tag</label>
+              <label for="by-author">Autor(a)</label>
             </div>
           </div>
           <button class="btn dictionary-submit waves-effect waves-light hide-on-med-and-down" type="submit"

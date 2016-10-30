@@ -1,1 +1,26 @@
-<%= render 'card_list', articles: @articles, query: @query %>
+<div class="row">
+  <% @articles.each_with_index do |article, index| %>
+    <%=
+      render 'card',
+        url: article.url,
+        title: article.title,
+        description: article.description,
+        image_url: article.image_url,
+        author_name: article.author_name,
+        highlighted: @query,
+        created_at: article.created_at
+    %>
+  <% end %>
+</div>
+
+<% if @articles.empty? %>
+  <div id="empty-result">
+    <div class="card-panel waves-effect waves-dark purple darken-4">
+      <span class="white-text">Nenhum resultado encontrado</span>
+    </div>
+  </div>
+<% end %>
+
+<div class="row center-align">
+  <%= will_paginate(@articles, renderer: WillPaginateRenderers::ListRenderer) %>
+</div>

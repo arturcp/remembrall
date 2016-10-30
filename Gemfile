@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg'
 gem 'materialize-sass'
 gem 'link_thumbnailer'
-gem 'acts-as-taggable-on', '~> 4.0'
 gem 'acts_as_indexed'
 gem 'will_paginate', '~> 3.1.0'
 
