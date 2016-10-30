@@ -16,8 +16,6 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
@@ -26,6 +24,7 @@ gem 'materialize-sass'
 gem 'link_thumbnailer'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'acts_as_indexed'
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

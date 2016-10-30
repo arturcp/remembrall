@@ -9,8 +9,6 @@ class SearchResult
   end
 
   def articles
-    return Article.all.limit(PAGE_SIZE) unless @query.present?
-
     send("search_by_#{@search_type}", @query)
   end
 

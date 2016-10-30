@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Proxima &#8594;"
