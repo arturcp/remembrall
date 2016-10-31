@@ -7,7 +7,7 @@
         description: article.description,
         image_url: article.image_url,
         author_name: article.author,
-        author_avatar: article.user&.avatar_url,
+        author_avatar: article.user ? article.user&.avatar_url : nil,
         highlighted: @query,
         created_at: article.created_at
     %>
