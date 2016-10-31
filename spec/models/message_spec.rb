@@ -40,6 +40,10 @@ describe Message do
       it 'returns false' do
         expect(Message.valid_url?('http://hangouts.google.com/room1')).to be false
       end
+
+      it 'returns false' do
+        expect(Message.valid_url?('http://youse-remembrall.herokuapp.com/')).to be false
+      end
     end
 
     context 'when url does not contain invalid terms' do
