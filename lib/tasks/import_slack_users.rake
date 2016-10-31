@@ -8,7 +8,7 @@ task import_slack_users: :environment do
   users.each do |slack_user|
     User.find_or_create_by(slack_id: slack_user['id']).tap do |user|
       user.name = slack_user['name']
-      user.avatar_url = slack_user['profile']['image_32']
+      user.avatar_url = slack_user['profile']['image_72']
     end.save!
   end
 

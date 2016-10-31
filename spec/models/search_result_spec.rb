@@ -32,7 +32,7 @@ describe SearchResult do
       context 'and the query is empty' do
         subject { SearchResult.new(search_type: search_type) }
 
-        it { expect(subject.articles.count).to eq(3) }
+        it { expect(subject.articles.count).to eq(2) }
       end
 
       context 'and the query is provided' do

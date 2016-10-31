@@ -15,7 +15,6 @@ class Article < ActiveRecord::Base
         article.user = user if user.present?
 
         article.url = url
-        article.author_name = slack_user_name
         article.title = page_content.title
         article.description = page_content.description
         article.image_url = page_content.images.first.src.to_s
@@ -25,6 +24,15 @@ class Article < ActiveRecord::Base
   end
 
   def author
-    user ? user.name : author_name
+    user || default_user
+  end
+
+  private
+
+  def default_user
+    User.new(
+      name: 'Remembrall',
+      avatar_url: 'http://4.bp.blogspot.com/-F1BbkGLis3Y/UaSOQmRxghI/AAAAAAAAAbY/rqWHvzeJ3C4/s72-c/Nevillelongbottom.jpg'
+    )
   end
 end
