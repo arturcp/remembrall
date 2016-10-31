@@ -4,7 +4,7 @@ class Message
   URL_REGEX = /<(https?:\/\/(?:www.|(?!www))[^\s.]+.[^\s]{2,}|www.[^\s]+.[^\s]{2,})>/
   BLACK_LIST = [
     'hangouts.com',
-    'youse-rememberall'
+    'youse-remembrall'
   ]
 
   def initialize(text = '')
