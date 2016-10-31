@@ -9,7 +9,7 @@
     <% end %>
     <div class="card-content">
 
-      <%= image_tag(author_avatar, class: 'circle responsive-img activator card-profile-image') if author_avatar %>
+      <%= image_tag(author_avatar, class: 'circle responsive-img activator card-profile-image') if author_avatar.present? %>
 
       <span class="card-title">
         <%= highlighted_text(title, highlighted) %>
