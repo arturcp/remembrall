@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
     message = Message.new(slack_params[:text])
 
     message.urls.each do |url|
-      Article.build(slack_params[:user_id], slack_params[:user_name], url)
+      Article.build(slack_params[:user_id],
+        slack_params[:user_name], url) if Message.valid_url?(url)
     end
 
     head :ok

@@ -22,10 +22,10 @@
       <div class="chip"><%= created_at.strftime('%d/%m/%Y') %></div>
     </div>
     <div class="card-action">
-      <%= link_to 'Ir para o site', url, target: :blank %>
+      <%= link_to 'Ir para o site', url, target: :blank, class: 'redirect-link' %>
 
       <div class="card-author">
-        <%= author.name %>
+        Por <b><%= author.name %></b>
       </div>
     </div>
   </div>
