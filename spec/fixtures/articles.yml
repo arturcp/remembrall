@@ -3,12 +3,14 @@ youse:
   description: 'Na Youse o seguro é tipo você. Em poucos minutos você monta seu seguro online, personalizado, do jeito que você precisa e que cabe no seu bolso.'
   url: 'http://www.youse.com.br'
   author_name: 'John Doe'
+  user_id: 1
 
 ebooks:
   title: 'Free Programming Ebooks'
   description: 'We have compiled the best insights from subject matter experts and industry insiders for you in one place, so you can dive deep into the latest of what’s happening in the world of software engineering, architecture, and open source.'
   url: 'http://www.oreilly.com/programming/free/'
   author_name: 'Jane Roe'
+  user_id: 2
 
 culture:
   title: 'Culture Code: What Makes a Company Great?'

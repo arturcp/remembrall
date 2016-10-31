@@ -6,7 +6,8 @@
         title: article.title,
         description: article.description,
         image_url: article.image_url,
-        author_name: article.author_name,
+        author_name: article.author,
+        author_avatar: article.user&.avatar_url,
         highlighted: @query,
         created_at: article.created_at
     %>

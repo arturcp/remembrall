@@ -19,8 +19,8 @@ class SearchResult
   end
 
   def search_by_author(query)
-    Article
-      .where("lower(author_name) like :name", name: "%#{@query}%")
+    Article.joins("LEFT JOIN users ON articles.user_id = users.id")
+      .where('lower(articles.author_name) like :name or lower(users.name) like :name', name: "%#{@query}%")
       .order(created_at: :desc)
   end
 
