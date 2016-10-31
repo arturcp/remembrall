@@ -38,7 +38,7 @@ describe Message do
   describe '#valid_url?' do
     context 'when url contains terms from black list' do
       it 'returns false' do
-        expect(Message.valid_url?('http://hangouts.com/room1')).to be false
+        expect(Message.valid_url?('http://hangouts.google.com/room1')).to be false
       end
     end
 
