@@ -7,7 +7,8 @@ class Message
     'youse-remembrall.herokuapp.com',
     'github.com',
     'cxdigital.atlassian.net',
-    'docs.google.com'
+    'docs.google.com',
+    'sentry.io'
   ]
 
   def initialize(text = '')
