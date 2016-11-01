@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SearchResult
-  PAGE_SIZE = 10
+  PAGE_SIZE = 9
 
   def initialize(query: '', search_type: SearchType::KEYWORD)
     @query = query.downcase
