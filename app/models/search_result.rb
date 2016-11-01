@@ -9,7 +9,7 @@ class SearchResult
   end
 
   def articles
-    send("search_by_#{@search_type}", @query)
+    send("search_by_#{@search_type}", @query).order(created_at: :desc)
   end
 
   private
@@ -21,10 +21,9 @@ class SearchResult
   def search_by_author(query)
     Article.joins(:user)
       .where('lower(users.name) like :name', name: "%#{@query}%")
-      .order(created_at: :desc)
   end
 
   def search_by_tag(query)
-    Article.tagged_with(query).order(created_at: :desc)
+    Article.tagged_with(query)
   end
 end
