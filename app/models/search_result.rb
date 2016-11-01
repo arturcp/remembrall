@@ -9,7 +9,11 @@ class SearchResult
   end
 
   def articles
-    send("search_by_#{@search_type}", @query).order(created_at: :desc)
+    if @query.present?
+      send("search_by_#{@search_type}", @query).order(created_at: :desc)
+    else
+      Article.all.order(created_at: :desc) unless @query.present?
+    end
   end
 
   private

@@ -40,5 +40,6 @@ Article.create!(
   title: 'Culture Code: What Makes a Company Great?',
   description: 'How do you create the ideal workplace? Share the values, rules, principles and tactics your organization follows. Upload your presentation and tag it #CultureCode.',
   url: 'http://www.slideshare.net/tag/culturecode',
-  image_url: 'http://slideshare-wordpress-blog-pictures.s3.amazonaws.com/tag_og_culturecode.jpg'
+  image_url: 'http://slideshare-wordpress-blog-pictures.s3.amazonaws.com/tag_og_culturecode.jpg',
+  created_at: Date.parse('2017-01-01')
 )
