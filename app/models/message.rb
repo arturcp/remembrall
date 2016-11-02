@@ -8,6 +8,7 @@ class Message
     'github.com',
     'cxdigital.atlassian.net',
     'docs.google.com',
+    'drive.google.com',
     'sentry.io'
   ]
 
