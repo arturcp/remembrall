@@ -34,22 +34,4 @@ describe Message do
       end
     end
   end
-
-  describe '#valid_url?' do
-    context 'when url contains terms from black list' do
-      it 'returns false' do
-        expect(Message.valid_url?('http://hangouts.google.com/room1')).to be false
-      end
-
-      it 'returns false' do
-        expect(Message.valid_url?('http://youse-remembrall.herokuapp.com/')).to be false
-      end
-    end
-
-    context 'when url does not contain invalid terms' do
-      it 'returns true' do
-        expect(Message.valid_url?('http://wwww.google.com.br')).to be true
-      end
-    end
-  end
 end
