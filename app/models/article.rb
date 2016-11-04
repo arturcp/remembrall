@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
   belongs_to :user
 
   def self.build(slack_user_id, slack_user_name, url)
-    page_content = LinkThumbnailer.generate(url)
+    page_content = fetch_page_content(url)
 
     if page_content
       user = User.find_by(slack_id: slack_user_id)
@@ -30,5 +30,17 @@ class Article < ActiveRecord::Base
 
   def author
     user || User.default
+  end
+
+  # TODO: this hack prevents the code to break when the page has no images. The
+  # right solution is to open a PR on the link_thumbnailer gem to prevent the code
+  # to break in this scenario.
+  #
+  # An example of a breaking page is
+  # * https://codeascraft.com/2016/10/19/being-an-effective-ally-to-women-and-non-binary-people/
+  def self.fetch_page_content(url)
+    LinkThumbnailer.generate(url)
+  rescue
+    LinkThumbnailer.generate(url, attributes: [:title, :description, :favicon])
   end
 end
