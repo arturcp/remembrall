@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/arturcp/remembrall/tree/master.svg?style=svg)](https://circleci.com/gh/arturcp/remembrall/tree/master)
+
 # README
 
 Remembrall is a vault for storing links. It was built for Slack, so it will capture
