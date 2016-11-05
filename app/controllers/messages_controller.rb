@@ -16,6 +16,6 @@ class MessagesController < ApplicationController
 
   def slack_params
     params.permit(:token, :team_id, :team_domain, :channel_id, :channel_name,
-      :timestamp, :user_id, :user_name, :text, :trigger_word)
+      :timestamp, :user_id, :user_name, :text, :trigger_word, :service_id)
   end
 end
