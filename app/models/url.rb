@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class URL
-  REGEX = /<(https?:\/\/(?:www.|(?!www))[^\s.]+.[^\s]{2,}|www.[^\s]+.[^\s]{2,})>/
+  REGEX = /<([^>]+)>/
   BLACK_LIST = [
     'hangouts.google.com',
     'youse-remembrall.herokuapp.com',
