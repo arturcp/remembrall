@@ -9,7 +9,8 @@ class URL
     'cxdigital.atlassian.net',
     'docs.google.com',
     'drive.google.com',
-    'sentry.io'
+    'sentry.io',
+    'goo.gl/maps'
   ].freeze
 
   attr_reader :url
