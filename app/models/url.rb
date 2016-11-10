@@ -10,7 +10,8 @@ class URL
     'docs.google.com',
     'drive.google.com',
     'sentry.io',
-    'goo.gl/maps'
+    'goo.gl/maps',
+    'media.giphy.com'
   ].freeze
 
   attr_reader :url
