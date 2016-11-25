@@ -12,7 +12,8 @@ class URL
     'sentry.io',
     'goo.gl/maps',
     'media.giphy.com',
-    'meme.am'
+    'meme.am',
+    'youse.herokuapp'
   ].freeze
 
   attr_reader :url
