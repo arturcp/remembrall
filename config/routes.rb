@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resource :message, only: :create
 
   post 'articles/search', to: 'articles#search'
-  get 'articles/:search_type/:query', to: 'articles#index', as: :articles
+  get 'articles/search/:query', to: 'articles#index', as: :articles
+
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   root 'articles#index'
 end
