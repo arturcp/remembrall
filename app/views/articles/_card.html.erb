@@ -8,6 +8,8 @@
     <div class="card-content">
       <%= image_tag(author.avatar_url, class: 'circle responsive-img activator card-profile-image') if author.avatar_url.present? %>
 
+      <%= render 'favorite', favorited: favorited %>
+
       <span class="card-title">
         <%= link_to url, target: :blank do %>
           <%= highlighted_text(title, highlighted) %>
