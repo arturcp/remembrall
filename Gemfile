@@ -27,6 +27,9 @@ gem 'acts_as_indexed'
 gem 'will_paginate', '~> 3.1.0'
 gem 'slack-api'
 
+gem 'omniauth'
+gem 'omniauth-slack', github: 'kmrshntr/omniauth-slack'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
