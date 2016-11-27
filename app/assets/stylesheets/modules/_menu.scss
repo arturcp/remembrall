@@ -1,0 +1,41 @@
+#sign-user {
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+
+.current-user-avatar {
+  margin-top: 3px;
+  box-shadow: 2px 3px 17px 3px #000;
+  width: 55px;
+}
+
+#dropdown1 {
+  display: none;
+  width: 140px;
+  background-color: $header-background-color;
+  border: 2px solid #000;
+  border-top: none;
+
+  li.link {
+    a {
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .material-icons {
+      float: left;
+      margin-right: 13px;
+      color: #fff;
+      font-size: 19px;
+    }
+
+    &:hover {
+      background-color: $card-background-color;
+      i,
+      a {
+        color: $card-color;
+      }
+    }
+  }
+}

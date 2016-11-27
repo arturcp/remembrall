@@ -7,9 +7,17 @@
   }
 }
 
+.main-logo {
+  display: block;
+}
+
+.brand-logo {
+  height: 60px;
+}
+
 .header-search-wrapper {
-  margin: 10px auto 0 240px;
-  width: calc(100% - 600px);
+  margin: 10px auto 0 105px;
+  width: calc(100% - 565px);
   height: 40px;
   display: inline-block;
   position: relative;
@@ -22,6 +30,11 @@
     line-height: 32px !important;
     -webkit-transition: color 200ms ease;
     transition: color 200ms ease;
+  }
+
+  @media only screen and (max-width: 992px) {
+    margin: 10px auto 0 0;
+    width: calc(100% - 285px);
   }
 }
 
@@ -43,8 +56,12 @@ input.header-search-input {
 
 #search-button {
   position: absolute;
-  top: 14px;
-  right: 125px;
+  top: 12px;
+  right: 245px;
+
+  @media only screen and (max-width: 992px) {
+    right: 15px;
+  }
 }
 
 #search-options {

@@ -24,7 +24,11 @@
   overflow: hidden;
 
   a {
-    color: #4a148c;
+    color: $card-color;
+  }
+
+  img {
+    background-color: #fff;
   }
 
   @media only screen and (min-width: 993px) {

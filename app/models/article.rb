@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Article < ActiveRecord::Base
-  acts_as_indexed fields: [:title, :description]
+  acts_as_indexed fields: [:title, :description, :author_name]
   validates :url, uniqueness: true
   belongs_to :user
 
@@ -31,5 +31,9 @@ class Article < ActiveRecord::Base
 
   def author
     user || User.default
+  end
+
+  def author_name
+    author.name
   end
 end

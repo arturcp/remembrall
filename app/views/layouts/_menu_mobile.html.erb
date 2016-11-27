@@ -1,0 +1,29 @@
+<ul id="slide-out" class="side-nav">
+  <% if current_user %>
+    <li>
+      <div class="userView">
+        <div class="background"></div>
+        <a href="#!user" class="user-identification">
+          <%= image_tag(current_user.avatar_url, class: 'responsive-img activator current-user-avatar')  %>
+        </a>
+      </div>
+    </li>
+    <%= render 'layouts/menu_options' %>
+  <% else %>
+    <li>
+      <div class="userView">
+        <div class="background"></div>
+        <a href="#!user" class="user-identification">
+          <%= image_tag(User.default.avatar_url, class: 'responsive-img activator current-user-avatar')  %>
+        </a>
+      </div>
+    </li>
+    <li class="link">
+      <%= link_to '/auth/slack' do %>
+        <div class="sign_in_with_slack_button"></div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>

@@ -1,0 +1,33 @@
+.background {
+  background-color: $card-background-color;
+  border-bottom: 1px solid $card-avatar-shadow;
+}
+
+#slide-out {
+  .userView .user-identification {
+    margin-right: 15px;
+    float: left;
+    height: 60px;
+    margin-bottom: 40px;
+
+    img {
+      background-color: #eee;
+    }
+  }
+
+  li.link {
+    padding: 0;
+    margin: 0;
+    clear: both;
+
+    i {
+      margin-right: 15px;
+      height: 50px;
+    }
+  }
+
+  .sign_in_with_slack_button {
+    margin: 0 auto;
+    position: inherit;
+  }
+}
