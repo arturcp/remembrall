@@ -1,0 +1,9 @@
+<% if current_user %>
+<div class="favorite-container">
+  <% if favorited %>
+    <%= fa_icon 'heart', class: 'favorited' %>
+  <% else %>
+    <%= fa_icon 'heart-o' %>
+  <% end %>
+</div>
+<% end %>
