@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
-class Article < ActiveRecord::Base
+class Article < ApplicationRecord
   acts_as_indexed fields: [:title, :description, :author_name]
   validates :url, uniqueness: true
   belongs_to :user
+
+  has_many :favorites
+  has_many :users, through: :favorites
 
   DEFAULT_IMAGE_URL = 'http://media1.santabanta.com/full1/Creative/Abstract/abstract-749a.jpg'
 

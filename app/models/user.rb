@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   DEFAULT_NAME = 'Anônimo'
   DEFAULT_AVATAR = 'https://mytruesense.files.wordpress.com/2013/07/question-mark.png'
+
+  has_many :favorites
+  has_many :articles, through: :favorites
 
   def self.default
     new(name: DEFAULT_NAME, avatar_url: DEFAULT_AVATAR)
@@ -17,5 +20,9 @@ class User < ActiveRecord::Base
       user.avatar_url = omniauth_user.profile.image_72
       user.save!
     end
+  end
+
+  def favorited?(article)
+    articles.include?(article)
   end
 end

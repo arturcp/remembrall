@@ -1,7 +1,8 @@
-<div class="row">
+<div class="row" data-favorite-url="<%= favorite_path %>">
   <% @articles.each_with_index do |article, index| %>
     <%=
       render 'card',
+        id: article.id,
         url: article.url,
         title: article.title,
         description: article.description,
@@ -9,7 +10,7 @@
         author: article.author,
         highlighted: @query,
         created_at: article.created_at,
-        favorited: false
+        favorited: !!current_user&.favorited?(article)
     %>
   <% end %>
 </div>

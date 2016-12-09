@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resource :message, only: :create
+  resource :favorite, only: :create
 
   post 'articles/search', to: 'articles#search'
   get 'articles/search/:query', to: 'articles#index', as: :articles
