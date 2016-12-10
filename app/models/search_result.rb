@@ -11,7 +11,7 @@ class SearchResult
     if @query.present?
       Article.with_query(@query).order(created_at: :desc)
     else
-      Article.all.order(created_at: :desc) unless @query.present?
+      Article.all.order(created_at: :desc)
     end
   end
 end

@@ -1,11 +1,15 @@
 require 'rails_helper'
 
 describe Article do
-  fixtures :articles, :users
-
+  # before do
+  #   create(:youse)
+  #   create(:ebooks)
+  #
+  # end
+  #
   describe '#author' do
     context 'when article has no user' do
-      let(:article) { articles(:culture) }
+      let(:article) { create(:culture) }
 
       it 'returns the default user' do
         expect(article.author.name).to eq(User::DEFAULT_NAME)
@@ -13,7 +17,7 @@ describe Article do
     end
 
     context 'when article has user' do
-      let(:article) { articles(:youse) }
+      let(:article) { create(:youse) }
 
       it 'returns the user' do
         expect(article.author.name).to eq('John Doe')
@@ -22,6 +26,7 @@ describe Article do
   end
 
   context 'duplicated urls' do
+    before { create(:youse) }
     let(:article) { Article.new(url: 'http://www.youse.com.br') }
 
     it 'is invalid if url already exists' do
@@ -35,6 +40,11 @@ describe Article do
   end
 
   describe '.build' do
+    before do
+      allow(Page).to receive(:read).and_return(page_content)
+    end
+
+    let!(:youse) { create(:youse) }
     let(:images) { [double(src: 'remembrall.png')] }
     let(:user_id) { 'USR1' }
     let(:page_content) do
@@ -46,10 +56,6 @@ describe Article do
       )
     end
 
-    before do
-      allow(Page).to receive(:read).and_return(page_content)
-    end
-
     context 'when url is black listed' do
       it 'does not save the article' do
         expect { Article.build(user_id, URL::BLACK_LIST[0]) }.to change { Article.count }.by(0)
@@ -58,7 +64,7 @@ describe Article do
 
     context 'when url is already saved' do
       it 'does not save the article' do
-        expect { Article.build(user_id, Article.last.url) }.to change { Article.count }.by(0)
+        expect { Article.build(user_id, youse.url) }.to change { Article.count }.by(0)
       end
     end
 

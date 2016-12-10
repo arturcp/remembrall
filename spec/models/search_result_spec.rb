@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 describe SearchResult do
-  fixtures :articles, :users
+  before do
+    create(:youse)
+    create(:ebooks)
+    create(:culture)
+  end
 
   describe '#articles' do
     context 'and the query is empty' do
@@ -11,7 +15,11 @@ describe SearchResult do
     end
 
     context 'and the query is provided' do
-      subject { SearchResult.new(query: 'Roe') }
+      before do
+        Article.create!(title: 'my article', user: User.create!(name: 'My precious'))
+      end
+
+      subject { SearchResult.new(query: 'precious') }
 
       it { expect(subject.articles.count).to eq(1) }
     end

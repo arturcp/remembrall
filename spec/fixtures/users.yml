@@ -1,9 +1,0 @@
-john:
-  slack_id: 'AB34234'
-  name: 'John Doe'
-  avatar_url: 'http://avatars.com/john'
-
-jane:
-  slack_id: 'CD9999'
-  name: 'Jane Roe'
-  avatar_url: 'http://avatars.com/jane'
