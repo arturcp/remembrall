@@ -1,0 +1,10 @@
+.tabs {
+  .tab a,
+  .tab a:hover {
+    color: $card-color;
+  }
+
+  .indicator {
+    background-color: $header-background-color;
+  }
+}

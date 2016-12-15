@@ -1,4 +1,4 @@
-page.at('articles#index', function() {
+page.at('articles#index favorites#index', function() {
   var Search = require('search'),
       Menu = require('menu'),
       Favorite = require('favorite');
