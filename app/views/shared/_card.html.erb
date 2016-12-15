@@ -8,7 +8,7 @@
     <div class="card-content">
       <%= image_tag(author.avatar_url, class: 'circle responsive-img activator card-profile-image') if author.avatar_url.present? %>
 
-      <%= render 'favorite', favorited: favorited %>
+      <%= render 'shared/favorite', favorited: favorited if show_favorite_icon %>
 
       <span class="card-title">
         <%= link_to url, target: :blank do %>

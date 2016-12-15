@@ -18,3 +18,11 @@
     }
   }
 }
+
+.favorites-title {
+  margin-left: 10px;
+
+  .fa {
+    color: $favorite-color;
+  }
+}

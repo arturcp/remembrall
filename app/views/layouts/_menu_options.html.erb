@@ -1,7 +1,7 @@
 <li class="link">
-  <a href="#">
-    <i class="material-icons">star</i>Favoritos
-  </a>
+  <%= link_to favorites_path do %>
+    <%= fa_icon('heart') %> Favorites
+  <% end %>
 </li>
 <li class="link">
   <%= link_to signout_path do %>

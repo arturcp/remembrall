@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class FavoritesController < ApplicationController
+  def index
+    @articles = current_user.articles.paginate(page: params[:page], per_page: SearchResult::PAGE_SIZE)
+  end
+
   def create
     article = Article.find(permitted_params[:article_id])
 
