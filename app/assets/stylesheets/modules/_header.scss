@@ -2,8 +2,8 @@
   margin: 0 10px;
 
   img {
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
   }
 }
 
@@ -11,8 +11,9 @@
   display: block;
 }
 
-.brand-logo {
+nav .brand-logo {
   height: 60px;
+  padding-left: 10px;
 }
 
 .header-search-wrapper {
