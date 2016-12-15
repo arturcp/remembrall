@@ -1,57 +1,33 @@
 require 'rails_helper'
 
 describe SearchResult do
-  fixtures :articles, :users
+  before do
+    create(:youse)
+    create(:ebooks)
+    create(:culture)
+  end
 
   describe '#articles' do
-    context 'when the search is by keyword' do
-      let(:search_type) { SearchType::KEYWORD }
+    context 'and the query is empty' do
+      subject { SearchResult.new }
 
-      context 'and the query is empty' do
-        subject { SearchResult.new(search_type: search_type) }
-
-        it { expect(subject.articles.count).to eq(3) }
-      end
-
-      context 'and the query is provided' do
-        subject { SearchResult.new(search_type: search_type, query: 'seguro') }
-
-        it { expect(subject.articles.count).to eq(1) }
-      end
-
-      context 'when the query does not match the case' do
-        subject { SearchResult.new(search_type: search_type, query: 'Seguro') }
-
-        it { expect(subject.articles.count).to eq(1) }
-      end
+      it { expect(subject.articles.count).to eq(3) }
     end
 
-    context 'when the search is by author name' do
-      let(:search_type) { SearchType::AUTHOR }
-
-      context 'and the query is empty' do
-        subject { SearchResult.new(search_type: search_type) }
-
-        it { expect(subject.articles.count).to eq(3) }
+    context 'and the query is provided' do
+      before do
+        Article.create!(title: 'my article', user: User.create!(name: 'My precious'))
       end
 
-      context 'and the query is provided' do
-        subject { SearchResult.new(search_type: search_type, query: 'Roe') }
+      subject { SearchResult.new(query: 'precious') }
 
-        it { expect(subject.articles.count).to eq(1) }
-      end
-
-      context 'when the query does not match the case' do
-        subject { SearchResult.new(search_type: search_type, query: 'roe') }
-
-        it { expect(subject.articles.count).to eq(1) }
-      end
+      it { expect(subject.articles.count).to eq(1) }
     end
 
-    xcontext 'when the search is by tag' do
-      subject { SearchResult.new(search_type: SearchType::TAG, query: 'Awesome') }
+    context 'when the query does not match the case' do
+      subject { SearchResult.new(query: 'roe') }
 
-      it { expect(subject.articles.count).to eq(2) }
+      it { expect(subject.articles.count).to eq(1) }
     end
   end
 end

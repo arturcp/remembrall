@@ -4,38 +4,27 @@
       <div class="nav-wrapper">
 
         <ul class="left">
-          <li>
+          <li class="main-logo hide-on-med-and-down">
             <h1 class="logo-wrapper">
               <%= link_to root_path, { class: 'brand-logo darken-1' } do %>
-                <%= image_tag 'youse.png' %>
+                <%= image_tag 'owl-icon.png' %>
               <% end %>
             </h1>
           </li>
+          <%= render 'layouts/menu_mobile' %>
         </ul>
 
         <%= form_tag articles_search_path do %>
-          <div class="header-search-wrapper hide-on-med-and-down">
+          <div class="header-search-wrapper">
             <i class="material-icons">search</i>
             <input type="text" name="query" class="header-search-input z-depth-2"
-              placeholder="Procure um artigo" id="search" value="<%= @query if @query %>">
-
-            <div id="search-options">
-              <input class="with-gap" name="search_type" type="radio"
-                id="by-keyword" value="<%= SearchType::KEYWORD %>"
-                <%= 'checked' if @search_type == SearchType::KEYWORD %>
-              />
-              <label for="by-keyword">Palavras-chave</label>
-
-              <input class="with-gap" name="search_type" type="radio"
-                id="by-author" value="<%= SearchType::AUTHOR %>"
-                <%= 'checked' if @search_type == SearchType::AUTHOR %>
-              />
-              <label for="by-author">Autor(a)</label>
-            </div>
+              placeholder="Pesquisar" id="search" value="<%= @query if @query %>">
           </div>
-          <button class="btn dictionary-submit waves-effect waves-light hide-on-med-and-down" type="submit"
+          <button class="btn dictionary-submit waves-effect waves-light" type="submit"
             name="action" id="search-button">Buscar</button>
         <% end %>
+
+        <%= render 'layouts/menu' %>
       </div>
     </nav>
   </div>

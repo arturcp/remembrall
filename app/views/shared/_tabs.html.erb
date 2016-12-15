@@ -1,0 +1,19 @@
+<% active_tab = local_assigns[:active_tab] ? local_assigns[:active_tab] : 'articles' %>
+<div class="row">
+  <div class="col s8 l4 offset-l4 offset-s2">
+    <ul class="tabs">
+      <li class="tab col l2 s2 m4">
+        <% klass = 'active' if active_tab == 'articles' %>
+        <%= link_to root_path, target: '_self', class: klass do %>
+          <%= fa_icon('vcard-o') %> Artigos
+        <% end %>
+      </li>
+      <li class="tab col l2 s2 m4">
+        <% klass = 'active' if active_tab == 'favorites' %>
+        <%= link_to favorites_path, target: '_self', class: klass do %>
+          <%= fa_icon('heart') %> Favoritos
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

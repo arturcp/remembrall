@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.0.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -26,12 +26,17 @@ gem 'link_thumbnailer'
 gem 'acts_as_indexed'
 gem 'will_paginate', '~> 3.1.0'
 gem 'slack-api'
+gem 'font-awesome-rails'
+
+gem 'omniauth'
+gem 'omniauth-slack', github: 'kmrshntr/omniauth-slack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.4'
   gem 'dotenv-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
