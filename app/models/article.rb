@@ -24,6 +24,8 @@ class Article < ApplicationRecord
       favicon: content.favicon,
       image_url: content.images.first&.src || DEFAULT_IMAGE_URL
     )
+  rescue => e
+    logger.debug e
   end
 
   def self.fromMessage(message:, user_id:)
