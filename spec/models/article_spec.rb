@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 describe Article do
-  # before do
-  #   create(:youse)
-  #   create(:ebooks)
-  #
-  # end
-  #
   describe '#author' do
     context 'when article has no user' do
       let(:article) { create(:culture) }
@@ -81,6 +75,27 @@ describe Article do
         it 'saves the article in the database' do
           expect { Article.build(user_id, "http://www.fakeurl.com/#{SecureRandom.uuid}") }.to change { Article.count }.by(1)
         end
+      end
+    end
+  end
+
+  describe '.from_message' do
+    let(:user_id) { 'USR1' }
+    before do
+      allow(Page).to receive(:read).and_return(Struct.new(:title, :description, :favicon, :images).new('title', 'description', 'fav.ico', []))
+    end
+
+    context 'when urls are valid' do
+      it 'saves the articles in the database' do
+        message = Message.new('Look how nice! <http://www.google.com.br> and <http://www.heroku.com|heroku>')
+        expect { Article.from_message(message: message, user_id: user_id) }.to change { Article.count }.by(2)
+      end
+    end
+
+    context 'when url is actually a mention' do
+      it 'saves the articles in the database' do
+        message = Message.new('Talk to me, <@john>')
+        expect { Article.from_message(message: message, user_id: user_id) }.to change { Article.count }.by(0)
       end
     end
   end

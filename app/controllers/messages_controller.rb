@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :create
 
   def create
-    Article.fromMessage(
+    Article.from_message(
       message: Message.new(slack_params[:text]),
       user_id: slack_params[:user_id]
     )

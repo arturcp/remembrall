@@ -28,9 +28,12 @@ class Article < ApplicationRecord
     logger.debug e
   end
 
-  def self.fromMessage(message:, user_id:)
+  def self.from_message(message:, user_id:)
     message.urls.each do |url|
-      build(user_id, url)
+      valid_url = url.split('|').first
+      next if valid_url[0] == '@'
+
+      build(user_id, valid_url)
     end
   end
 
