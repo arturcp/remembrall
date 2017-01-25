@@ -14,6 +14,8 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     omniauth_user = auth.extra.raw_info.user_info.user
 
+    return unless omniauth_user
+
     where(slack_id: omniauth_user.id).first_or_initialize.tap do |user|
       user.slack_id = omniauth_user.id
       user.name = omniauth_user.name
