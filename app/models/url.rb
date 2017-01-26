@@ -13,7 +13,8 @@ class URL
     'goo.gl/maps',
     'media.giphy.com',
     'meme.am',
-    'youse.herokuapp'
+    'youse.herokuapp',
+    'youse.growbot.io'
   ].freeze
 
   attr_reader :url
