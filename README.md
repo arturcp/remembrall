@@ -78,6 +78,12 @@ in order to extract the urls.
 You can repeat this configuration on as many channels as you want - but be aware
 that each channel will require a new Outgoing Webhook configuration.
 
+## Configuring the login with slack
+
+The informaion about the integration is in the following url:
+https://api.slack.com/docs/oauth.
+
+You can check your apps in https://api.slack.com/apps
 
 ## The black list
 
