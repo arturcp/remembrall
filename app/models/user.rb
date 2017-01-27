@@ -14,6 +14,7 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     omniauth_user = auth.extra.raw_info.user_info.user
 
+    Rails.logger.debug "omniauth nil: #{auth.inspect}"
     return unless omniauth_user
 
     where(slack_id: omniauth_user.id).first_or_initialize.tap do |user|
