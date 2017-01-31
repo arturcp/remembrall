@@ -14,7 +14,10 @@ class URL
     'media.giphy.com',
     'meme.am',
     'youse.herokuapp',
-    'youse.growbot.io'
+    'youse.growbot.io',
+    'giphy.com',
+    'twitter.com',
+    'slack.com/files'
   ].freeze
 
   attr_reader :url
