@@ -17,7 +17,8 @@ class URL
     'youse.growbot.io',
     'giphy.com',
     'twitter.com',
-    'slack.com/files'
+    'slack.com/files',
+    'ytimg.com'
   ].freeze
 
   attr_reader :url
