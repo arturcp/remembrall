@@ -77,6 +77,13 @@ describe Article do
         end
       end
     end
+
+    context 'with tags' do
+      it 'includes tags on the article' do
+        article = Article.build(user_id, "http://www.fakeurl.com/#{SecureRandom.uuid}", ['tag1', 'tag2'])
+        expect(article.tags.map(&:name)).to match_array(['tag1', 'tag2'])
+      end
+    end
   end
 
   describe '.from_message' do
@@ -96,6 +103,14 @@ describe Article do
       it 'saves the articles in the database' do
         message = Message.new('Talk to me, <@john>')
         expect { Article.from_message(message: message, user_id: user_id) }.to change { Article.count }.by(0)
+      end
+    end
+
+    context 'with tags' do
+      it 'includes tags on the article' do
+        message = Message.new('Look how nice! <http://www.heroku.com|heroku> #bestLink #weRock')
+        article = Article.from_message(message: message, user_id: user_id).last
+        expect(article.tags.map(&:name)).to match_array(['bestLink', 'weRock'])
       end
     end
   end

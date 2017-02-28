@@ -2,6 +2,8 @@
 
 class Article < ApplicationRecord
   acts_as_indexed fields: [:title, :description, :author_name]
+  acts_as_taggable
+
   validates :url, uniqueness: true
   belongs_to :user
 
@@ -10,31 +12,34 @@ class Article < ApplicationRecord
 
   DEFAULT_IMAGE_URL = 'http://media1.santabanta.com/full1/Creative/Abstract/abstract-749a.jpg'
 
-  def self.build(slack_user_id, url)
+  def self.build(slack_user_id, url, hashtags = [])
     return unless URL.new(url).valid?
 
     content = Page.read(url)
     user = User.find_by(slack_id: slack_user_id)
 
-    create(
+    article = create(
       user: user,
       url: url,
       title: content.title,
       description: content.description,
       favicon: content.favicon,
-      image_url: content.images.first&.src || DEFAULT_IMAGE_URL
+      image_url: content.images.first&.src || DEFAULT_IMAGE_URL,
+      tag_list: hashtags
     )
+
+    article
   rescue => e
     logger.debug e
   end
 
   def self.from_message(message:, user_id:)
-    message.urls.each do |url|
+    message.urls.map do |url|
       valid_url = url.split('|').first
       next if valid_url[0] == '@'
 
-      build(user_id, valid_url)
-    end
+      build(user_id, valid_url, message.hashtags)
+    end.compact
   end
 
   def author
