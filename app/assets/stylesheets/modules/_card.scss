@@ -64,7 +64,7 @@
 .card-tags {
   background-color: #fff;
   padding: 5px;
-  min-height: 42px;
+  min-height: 47px;
 }
 
 .card-profile-image {
@@ -75,4 +75,10 @@
   cursor: pointer;
   border: 2px solid #ccc;
   box-shadow: 2px 0px 18px 4px $card-avatar-shadow;
+}
+
+.card-created-at {
+  position: absolute;
+  top: 6px;
+  right: 0;
 }

@@ -27,6 +27,8 @@ gem 'acts_as_indexed'
 gem 'will_paginate', '~> 3.1.0'
 gem 'slack-api'
 gem 'font-awesome-rails'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'select2-rails'
 
 gem 'omniauth'
 gem 'omniauth-slack', github: 'kmrshntr/omniauth-slack'
@@ -51,6 +53,10 @@ end
 
 group :production do
   gem 'rails_12factor'
+end
+
+group :test do
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

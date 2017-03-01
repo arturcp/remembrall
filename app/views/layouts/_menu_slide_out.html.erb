@@ -1,0 +1,38 @@
+<ul id="slide-out" class="side-nav">
+  <% avatar_url = current_user ? current_user.avatar_url : User.default.avatar_url %>
+  <li>
+    <div class="userView center-align">
+      <div class="background"></div>
+
+      <a href="javascript:;" class="user-identification">
+        <%= image_tag(avatar_url, class: 'responsive-img activator current-user-avatar')  %>
+      </a>
+
+      <ul>
+        <li class="link li-tags">
+          <div class="input-field col s12">
+            <%=
+              select_tag('tags-list',
+                options_from_collection_for_select(@tags, 'name', 'name'),
+                include_blank: 'Escolha uma tag',
+                data: { tags_url: tags_path }
+              )
+            %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </li>
+
+  <% if current_user %>
+    <%= render 'layouts/menu_options' %>
+  <% else %>
+    <li class="link">
+      <%= link_to '/auth/slack' do %>
+        <div class="sign_in_with_slack_button"></div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>

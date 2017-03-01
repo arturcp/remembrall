@@ -1,0 +1,19 @@
+#tags-list {
+  display: block;
+  margin: 5px;
+  width: 96%;
+}
+
+.li-tags {
+  margin-left: 5px !important;
+}
+
+.tags-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+
+  a {
+    cursor: pointer;
+  }
+}

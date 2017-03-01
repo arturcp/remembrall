@@ -10,7 +10,8 @@
         author: article.author,
         highlighted: query,
         created_at: article.created_at,
-        favorited: !!current_user&.favorited?(article)
+        favorited: !!current_user&.favorited?(article),
+        tags: article.tag_list
     %>
   <% end %>
 </div>

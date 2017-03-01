@@ -1,0 +1,12 @@
+<% if @tag %>
+  <div class="tags-control green lighten-5">
+    <p class="green-text center-align">
+      Você está vendo o resultado para a tag <mark>#<%= @tag %></mark>.
+      <a data-activates="slide-out">Mude a tag</a> ou
+      <%= link_to 'remova o filtro', root_path %>
+    </p>
+  </div>
+<% end %>
+
+<%= render 'shared/articles_list', articles: @articles, query: @query %>
+<%= render 'shared/open_slide_menu_button' %>

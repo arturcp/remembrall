@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_action :search_data
 
   def index
+    @tags = Tag.all.sort_by(&:name)
     @articles = SearchResult.new(query: @query)
       .articles
       .paginate(page: params[:page], per_page: SearchResult::PAGE_SIZE)

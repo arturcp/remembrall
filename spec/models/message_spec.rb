@@ -34,4 +34,25 @@ describe Message do
       end
     end
   end
+
+  describe '#hashtags' do
+    context 'when there are hashtags' do
+      it 'captures all hashtags from the message' do
+        message = Message.new('#tag <http://www.google.com.br> #ficaADica')
+        expect(message.hashtags).to match_array(['tag', 'ficaADica'])
+      end
+
+      it 'ignores hashtags that are part of the url' do
+        message = Message.new('#tag <http://www.google.com.br#anchor1> #ficaADica')
+        expect(message.hashtags).to match_array(['tag', 'ficaADica'])
+      end
+    end
+
+    context 'when there are no hashtags' do
+      it 'returns an empty array' do
+        message = Message.new('<http://www.google.com.br#test>')
+        expect(message.hashtags).to be_empty
+      end
+    end
+  end
 end

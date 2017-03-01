@@ -100,3 +100,15 @@ remind its bearer that he/she has forgotten something. The idea behind this is
 that we kept forgetting the links we shared on slack, so now we can store
 them automatically, without having to take any special action. Once the link is
 shared, anyone can find it back easily.
+
+# Ngrok
+
+In order to test remembrall on your local machine, you can use [ngrok](https://ngrok.com/).
+
+To run ngrok:
+
+```
+/Applications/ngrok http 80
+```
+
+Copy the forwarding url it will print on the terminal and use it on your webhook.
