@@ -2,6 +2,8 @@
 
 class FavoritesController < ApplicationController
   def index
+    @tags = Tag.all.sort_by(&:name)
+
     @articles = current_user.articles.paginate(page: params[:page], per_page: SearchResult::PAGE_SIZE)
   end
 

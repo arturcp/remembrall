@@ -4,6 +4,10 @@
       <%= link_to url, target: :blank do %>
         <%= image_tag image_url, class: 'activator' %>
       <% end if image_url %>
+
+      <div class="card-created-at">
+        <div class="chip"><%= created_at.strftime('%d/%m/%Y') %></div>
+      </div>
     </div>
     <div class="card-content">
       <%= image_tag(author.avatar_url, class: 'circle responsive-img activator card-profile-image') if author.avatar_url.present? %>
@@ -22,12 +26,13 @@
       </div>
     </div>
     <div class="card-tags right-align">
-      <!-- <div class="chip">Compartilhado em <%= created_at.strftime('%d/%m/%Y') %></div> -->
-      <% tags.take(4).each do |tag| %>
-        <div class="chip"><%= tag %></div>
+      <% tags.take(3).each do |tag| %>
+        <%= link_to tags_path(tag: tag) do %>
+          <div class="chip"><%= tag %></div>
+        <% end %>
       <% end %>
 
-      <% if tags.count > 4 %>
+      <% if tags.count > 3 %>
         <div class="chip">...</div>
       <% end %>
     </div>

@@ -28,6 +28,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'slack-api'
 gem 'font-awesome-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
+gem 'select2-rails'
 
 gem 'omniauth'
 gem 'omniauth-slack', github: 'kmrshntr/omniauth-slack'

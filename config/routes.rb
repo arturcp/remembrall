@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resource :message, only: :create
   resources :favorites, only: [:create, :index]
+  resources :tags, only: :index
 
   post 'articles/search', to: 'articles#search'
   get 'articles/search/:query', to: 'articles#index', as: :articles

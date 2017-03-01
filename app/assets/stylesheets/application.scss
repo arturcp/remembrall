@@ -2,6 +2,7 @@
 @import 'materialize';
 @import 'reset';
 @import 'variables';
+@import 'select2';
 
 @import 'font-awesome';
 
@@ -10,7 +11,8 @@
 @import 'modules/favorite';
 @import 'modules/loader';
 @import 'modules/menu';
-@import 'modules/menu_mobile';
+@import 'modules/menu_slide_out';
 @import 'modules/pagination';
 @import 'modules/sign_in_with_slack_button';
 @import 'modules/tabs';
+@import 'modules/tags';

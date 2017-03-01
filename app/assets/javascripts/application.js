@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize
+//= require select2
 
 //= require page
 //= require almond

@@ -1,6 +1,6 @@
 define('menu', [], function() {
   function Menu() {
-    this.button = $(".button-collapse");
+    this.button = $("[data-activates]");
 
     this._bindEvents();
   };
