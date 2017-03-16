@@ -33,7 +33,6 @@ gem 'select2-rails'
 gem 'omniauth'
 gem 'omniauth-slack', github: 'kmrshntr/omniauth-slack'
 
-
 gem 'slack-ruby-bot-server'
 gem 'otr-activerecord'
 gem 'cursor_pagination'
