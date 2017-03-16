@@ -33,6 +33,11 @@ gem 'select2-rails'
 gem 'omniauth'
 gem 'omniauth-slack', github: 'kmrshntr/omniauth-slack'
 
+
+gem 'slack-ruby-bot-server'
+gem 'otr-activerecord'
+gem 'cursor_pagination'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
