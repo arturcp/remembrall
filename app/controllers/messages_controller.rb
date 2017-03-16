@@ -5,17 +5,16 @@ class MessagesController < ApplicationController
 
   def create
     Article.from_message(
-      message: Message.new(slack_params[:text]),
-      user_id: slack_params[:user_id]
+      message: Message.new(params['message']['event']['text']),
+      user_id: params['message']['event']['user']
     )
 
-    head :ok
+    render text: params['challenge']
   end
 
   private
 
   def slack_params
-    params.permit(:token, :team_id, :team_domain, :channel_id, :channel_name,
-      :timestamp, :user_id, :user_name, :text, :trigger_word, :service_id)
+    params.permit(:message).permit(:event).permit(:text, :user)
   end
 end
