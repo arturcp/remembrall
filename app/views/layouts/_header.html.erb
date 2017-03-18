@@ -14,7 +14,7 @@
           <%= render 'layouts/menu_slide_out' %>
         </ul>
 
-        <%= form_tag articles_search_path do %>
+        <%= form_tag articles_search_path(@collection) do %>
           <div class="header-search-wrapper">
             <i class="material-icons">search</i>
             <input type="text" name="query" class="header-search-input z-depth-2"
