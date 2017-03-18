@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :favorites
   has_many :articles, through: :favorites
+  belongs_to :collection
 
   def self.default
     new(name: DEFAULT_NAME, avatar_url: DEFAULT_AVATAR)
