@@ -25,17 +25,26 @@ gem 'materialize-sass'
 gem 'link_thumbnailer'
 gem 'acts_as_indexed'
 gem 'will_paginate', '~> 3.1.0'
-gem 'slack-api'
 gem 'font-awesome-rails'
-gem 'acts-as-taggable-on', '~> 4.0'
 gem 'select2-rails'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'friendly_id', '~> 5.1.0'
 
+# Slack
 gem 'omniauth'
 gem 'omniauth-slack', github: 'kmrshntr/omniauth-slack'
-
 gem 'slack-ruby-bot-server'
 gem 'otr-activerecord'
 gem 'cursor_pagination'
+gem 'slack-api', require: false
+
+# FIXME: We have to fetch the gem from the master due to an error with celluloid 0.17.3.
+#
+# Celluloid is a dependency of slack-ruby-bot-server. The discussion about the problem
+# Can be found here: https://github.com/celluloid/celluloid/issues/696#issuecomment-221195865
+#
+# Running db:migrate was failing with 'Couldn't cleanly terminate all actors in 10 seconds'
+gem 'celluloid', git: 'https://github.com/celluloid/celluloid', submodules: true
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
