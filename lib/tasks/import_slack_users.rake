@@ -2,7 +2,7 @@ require 'slack'
 
 desc 'Import users from slack'
 task import_slack_users: :environment do
-  client = Slack::Client.new(token: ENV['SLACK_TOKEN'])
+  client = Slack::Client.new(token: ENV['SLACK_API_TOKEN'])
 
   users = client.users_list['members']
   users.each do |slack_user|
