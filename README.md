@@ -20,6 +20,15 @@ automatically be saved. To know how to configure channels read the section
 
 A tip: duplicated links are never saved again!
 
+## The name
+
+The name is a homage to the Harry Potter Remembrall, a magical artifact created to
+remind its bearer that he/she has forgotten something. The idea behind this is
+that we kept forgetting the links we shared on slack, so now we can store
+them automatically, without having to take any special action. Once the link is
+shared, anyone can find it back easily.
+
+
 ## Important info
 
 * Ruby Version: 2.3.0
@@ -58,7 +67,7 @@ console and run:
 bin/rake import_slack_users
 ```
 
-It will use the SLACK_TOKEN on the `.env` file and retrieve the information. You
+It will use the SLACK_API_TOKEN on the `.env` file and retrieve the information. You
 can run this command as many times as you need, the data is never destroyed. This
 is good because you can run it from times to times to ensure the avatars are
 in sync with slack.
@@ -92,14 +101,6 @@ need to store hangouts' conversations or links to Remembrall itself. To prevent
 a link to be saved, include part of it in the `BLACK_LIST` constant inside the
 `models/url.rb`.
 
-
-## The name
-
-The name is a homage to the Harry Potter Remembrall, a magical artifact created to
-remind its bearer that he/she has forgotten something. The idea behind this is
-that we kept forgetting the links we shared on slack, so now we can store
-them automatically, without having to take any special action. Once the link is
-shared, anyone can find it back easily.
 
 # Ngrok
 
