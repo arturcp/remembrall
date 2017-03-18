@@ -8,19 +8,21 @@
         <%= image_tag(avatar_url, class: 'responsive-img activator current-user-avatar')  %>
       </a>
 
-      <ul>
-        <li class="link li-tags">
-          <div class="input-field col s12">
-            <%=
-              select_tag('tags-list',
-                options_from_collection_for_select(@tags, 'name', 'name'),
-                include_blank: 'Escolha uma tag',
-                data: { tags_url: tags_path }
-              )
-            %>
-          </div>
-        </li>
-      </ul>
+      <% if @tags %>
+        <ul>
+          <li class="link li-tags">
+            <div class="input-field col s12">
+              <%=
+                select_tag('tags-list',
+                  options_from_collection_for_select(@tags, 'name', 'name'),
+                  include_blank: 'Escolha uma tag',
+                  data: { tags_url: tags_path }
+                )
+              %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
     </div>
   </li>
 
