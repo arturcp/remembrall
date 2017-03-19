@@ -29,4 +29,11 @@ class User < ApplicationRecord
   def favorited?(article)
     articles.include?(article)
   end
+
+  def self.save_profile(collection:, id:, name:, avatar:)
+    find_or_create_by(slack_id: id, collection_id: collection.id).tap do |user|
+      user.name = name
+      user.avatar_url = avatar
+    end.save!
+  end
 end
