@@ -13,13 +13,14 @@ class Article < ApplicationRecord
 
   DEFAULT_IMAGE_URL = 'http://media1.santabanta.com/full1/Creative/Abstract/abstract-749a.jpg'
 
-  def self.build(slack_user_id, url, hashtags = [])
+  def self.build(collection, slack_user_id, url, hashtags = [])
     return unless URL.new(url).valid?
 
     content = Page.read(url)
     user = User.find_by(slack_id: slack_user_id)
 
     article = create(
+      collection: collection,
       user: user,
       url: url,
       title: content.title,
@@ -34,12 +35,12 @@ class Article < ApplicationRecord
     logger.debug e
   end
 
-  def self.from_message(message:, user_id:)
+  def self.from_message(message:, user_id:, collection:)
     message.urls.map do |url|
       valid_url = url.split('|').first
       next if valid_url[0] == '@'
 
-      build(user_id, valid_url, message.hashtags)
+      build(collection, user_id, valid_url, message.hashtags)
     end.compact
   end
 
