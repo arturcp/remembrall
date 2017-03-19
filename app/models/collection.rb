@@ -9,12 +9,14 @@ class Collection < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   def self.create_from_oauth_response(response)
-    return if exists?(team_id: response[:team_id])
+    team = find_by(team_id: response[:team_id])
+    return team if team.present?
 
     create!(
       name: response[:team_name],
       team_id: response[:team_id],
-      slack_api_token: response[:access_token]
+      bot_user_id: response[:bot][:bot_user_id],
+      bot_access_token: response[:bot][:bot_access_token]
     )
   end
 end
