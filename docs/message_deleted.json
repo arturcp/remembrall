@@ -1,0 +1,50 @@
+{
+	"token": "xxxxxxxxxxxxxxxxxxxxxxxx",
+	"team_id": "T1XXXXXX2",
+	"api_app_id": "A4X0X8XX0",
+	"event": {
+		"type": "message",
+		"deleted_ts": "1489875448.227727",
+		"subtype": "message_deleted",
+		"hidden": true,
+		"channel": "C1XXXX0X5",
+		"previous_message": {
+			"type": "message",
+			"user": "U1XXXXX00",
+			"text": "This is a test",
+			"ts": "1489875448.227727"
+		},
+		"event_ts": "1489875645.237116",
+		"ts": "1489875645.237116"
+	},
+	"type": "event_callback",
+	"authed_users": ["U4X1X9XXX"],
+	"event_id": "Ev2XX8XXXX",
+	"event_time": 1489875645,
+	"controller": "messages",
+	"action": "create",
+	"message": {
+		"token": "xxxxxxxxxxxxxxxxxxxxxxxx",
+		"team_id": "T1XXXXXX2",
+		"api_app_id": "A4X0X8XX0",
+		"event": {
+			"type": "message",
+			"deleted_ts": "1489875448.227727",
+			"subtype": "message_deleted",
+			"hidden": true,
+			"channel": "C1XXXX0X5",
+			"previous_message": {
+				"type": "message",
+				"user": "U1XXXXX00",
+				"text": "This is a test",
+				"ts": "1489875448.227727"
+			},
+			"event_ts": "1489875645.237116",
+			"ts": "1489875645.237116"
+		},
+		"type": "event_callback",
+		"authed_users": ["U4X1X9XXX"],
+		"event_id": "Ev2XX8XXXX",
+		"event_time": 1489875645
+	}
+}

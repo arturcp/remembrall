@@ -1,0 +1,36 @@
+{
+	"token": "xxxxxxxxxxxxxxxxxxxxxxxx",
+	"team_id": "T1XXXXXX0",
+	"api_app_id": "A4M0X8NK0",
+	"event": {
+		"type": "message",
+		"user": "U1XXXXX00",
+		"text": "This is a test",
+		"ts": "1489875448.227727",
+		"channel": "C1XXXX0X5",
+		"event_ts": "1489875448.227727"
+	},
+	"type": "event_callback",
+	"authed_users": ["U4X1X9XXX"],
+	"event_id": "Ev4M3XXXXX",
+	"event_time": 1489875448,
+	"controller": "messages",
+	"action": "create",
+	"message": {
+		"token": "xxxxxxxxxxxxxxxxxxxxxxxx",
+		"team_id": "T1XXXXXX0",
+		"api_app_id": "A4M0X8NK0",
+		"event": {
+			"type": "message",
+			"user": "U1XXXXX00",
+			"text": "This is a test",
+			"ts": "1489875448.227727",
+			"channel": "C1XXXX0X5",
+			"event_ts": "1489875448.227727"
+		},
+		"type": "event_callback",
+		"authed_users": ["U4X1X9XXX"],
+		"event_id": "Ev4M3XXXXX",
+		"event_time": 1489875448
+	}
+}

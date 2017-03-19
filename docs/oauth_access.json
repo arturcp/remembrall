@@ -1,0 +1,12 @@
+{
+	"ok": true,
+	"access_token": "xoxp-xxxxxxxxxxx-xxxxxxxxxxx-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+	"scope": "identify,bot",
+	"user_id": "U1RNTJA00",
+	"team_name": "rubyslackapi",
+	"team_id": "T1RNQLWJ2",
+	"bot": {
+		"bot_user_id": "U4X1X9XXX",
+		"bot_access_token": "xoxb-xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxx"
+	}
+}
