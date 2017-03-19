@@ -34,9 +34,10 @@ ActiveRecord::Schema.define(version: 20170317005156) do
 
   create_table "collections", force: :cascade do |t|
     t.string "name"
-    t.string "slack_api_token"
     t.string "slug"
     t.string "team_id"
+    t.string "bot_user_id"
+    t.string "bot_access_token"
   end
 
   create_table "favorites", force: :cascade do |t|
