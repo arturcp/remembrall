@@ -36,7 +36,6 @@ gem 'omniauth-slack', github: 'kmrshntr/omniauth-slack'
 gem 'slack-ruby-bot-server'
 gem 'otr-activerecord'
 gem 'cursor_pagination'
-gem 'slack-api', require: false
 
 # FIXME: We have to fetch the gem from the master due to an error with celluloid 0.17.3.
 #
