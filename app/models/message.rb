@@ -3,8 +3,8 @@
 class Message
   TAG_REGEX = /(?:\s|\A)#(\S+)/
 
-  def initialize(text = '')
-    @text = text
+  def initialize(text)
+    @text = text || ''
   end
 
   def urls
@@ -13,5 +13,9 @@ class Message
 
   def hashtags
     @hashtags ||= @text.scan(TAG_REGEX).flatten
+  end
+
+  def has_urls?
+    urls.present?
   end
 end
