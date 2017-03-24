@@ -2,7 +2,6 @@
 
 class ArticlesController < ApplicationController
   before_action :search_data
-  before_action :fetch_collection
 
   def index
     # TODO: fetch tags for the collection
@@ -24,9 +23,5 @@ class ArticlesController < ApplicationController
 
   def search_data
     @query = params[:query] || ''
-  end
-
-  def fetch_collection
-    @collection = Collection.friendly.find(params[:collection])
   end
 end

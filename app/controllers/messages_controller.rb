@@ -3,6 +3,8 @@
 class MessagesController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :create
 
+  SLACK_VERIFICATION_MODE = false
+
   # Public: Slack will dispatch events that will be capture by this action. This
   # controller is listening to these types of events:
   #
@@ -12,7 +14,22 @@ class MessagesController < ApplicationController
   #
   # For examples of the hash the slack sends for each type of event, check the
   # json files at `docs/message_<EVENT_TYPE>.json`
+  #
+  # When you change the url on slack you must return the challenge param to prove
+  # you own the url. To make it easier, just change the `SLACK_VERIFICATION_MODE`
+  # constant to true, verify the url and turn it back to false to make remembrall
+  # salve the links.
   def create
+    if SLACK_VERIFICATION_MODE
+      render text: params['challenge']
+    else
+      crete_message
+    end
+  end
+
+  private
+
+  def crete_message
     event = SlackEvent.new(safe_params)
     message = Message.new(event.message)
 
@@ -30,8 +47,6 @@ class MessagesController < ApplicationController
 
     head :ok
   end
-
-  private
 
   def collection
     @collection ||= Collection.find_by(team_id: params['team_id'])

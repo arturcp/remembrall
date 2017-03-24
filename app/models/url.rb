@@ -23,8 +23,9 @@ class URL
 
   attr_reader :url
 
-  def initialize(url)
+  def initialize(url, black_list = BLACK_LIST)
     @url = url
+    @black_list = black_list
   end
 
   def valid?
@@ -34,7 +35,7 @@ class URL
   private
 
   def black_listed?
-    BLACK_LIST.reduce(false) do |status, item|
+    @black_list.reduce(false) do |status, item|
       status ||= url.include?(item)
     end
   end

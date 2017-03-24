@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   resource :message, only: :create
   get 'team/connect', to: 'teams#connect'
   resources :favorites, only: [:create, :index]
-  resources :tags, only: :index
 
   scope ':collection' do
     get 'articles/search(/:query)', to: 'articles#index', as: :articles
     post 'articles/search', to: 'articles#search'
+    resources :tags, only: :index
   end
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

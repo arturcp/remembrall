@@ -7,6 +7,7 @@ class Collection < ActiveRecord::Base
   has_many :black_list_urls
 
   friendly_id :name, use: :slugged
+  acts_as_tagger
 
   def self.create_from_oauth_response(response)
     team = find_by(team_id: response[:team_id])

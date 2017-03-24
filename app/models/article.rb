@@ -30,6 +30,8 @@ class Article < ApplicationRecord
       tag_list: hashtags
     )
 
+    collection.tag(article, with: hashtags, on: :tags)
+
     article
   rescue => e
     logger.debug e
