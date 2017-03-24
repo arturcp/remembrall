@@ -6,7 +6,9 @@
         <ul class="left">
           <li class="main-logo hide-on-med-and-down">
             <h1 class="logo-wrapper">
-              <%= link_to root_path, { class: 'brand-logo darken-1' } do %>
+              <% home_url = @collection ?  articles_search_path(@collection) : root_path %>
+
+              <%= link_to home_url, { class: 'brand-logo darken-1' } do %>
                 <%= image_tag 'owl-icon.png' %>
               <% end %>
             </h1>
