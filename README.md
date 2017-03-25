@@ -113,3 +113,42 @@ To run ngrok:
 ```
 
 Copy the forwarding url it will print on the terminal and use it on your webhook.
+
+
+
+
+
+
+
+
+# TODO delete this:
+
+BLACK_LIST = [
+  'hangouts.google.com',
+  'youse-remembrall.herokuapp.com',
+  'github.com',
+  'cxdigital.atlassian.net',
+  'docs.google.com',
+  'drive.google.com',
+  'sentry.io',
+  'goo.gl/maps',
+  'media.giphy.com',
+  'meme.am',
+  'youse.herokuapp',
+  'youse.growbot.io',
+  'giphy.com',
+  'twitter.com',
+  'slack.com/files',
+  'ytimg.com'
+].freeze
+
+BLACK_LIST.each do |pattern|
+  BlackListUrl.create!(collection: collection, pattern: "/#{pattern}/i")
+end
+
+# TODO: To use the list of black list urls:
+#re = Regexp.union(prefixes)
+#then you use re as your regex:
+
+#if name.match(re)
+#http://stackoverflow.com/questions/9731649/match-a-string-against-multiple-paterns

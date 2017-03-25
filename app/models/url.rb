@@ -29,7 +29,13 @@ class URL
   end
 
   def valid?
-    !black_listed?
+    !black_listed? && url[0] != '@'
+  end
+
+  def self.from_slack(slack_url)
+    url = slack_url.split('|').first
+
+    new(url)
   end
 
   private

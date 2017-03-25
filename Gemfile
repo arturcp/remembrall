@@ -20,15 +20,15 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'pg'
-gem 'materialize-sass'
-gem 'link_thumbnailer'
 gem 'acts_as_indexed'
-gem 'will_paginate', '~> 3.1.0'
-gem 'font-awesome-rails'
-gem 'select2-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
+gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.1.0'
+gem 'link_thumbnailer'
+gem 'materialize-sass'
+gem 'pg'
+gem 'select2-rails'
+gem 'will_paginate', '~> 3.1.0'
 
 # Slack
 gem 'omniauth'

@@ -5,6 +5,7 @@ class Collection < ActiveRecord::Base
 
   has_many :articles
   has_many :black_list_urls
+  has_many :channels
 
   friendly_id :name, use: :slugged
   acts_as_tagger

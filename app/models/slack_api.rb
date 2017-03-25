@@ -6,6 +6,7 @@ require 'uri'
 class SlackAPI
   OAUTH_ACCESS_URL = 'https://slack.com/api/oauth.access'
   USERS_INFO_URL = 'https://slack.com/api/users.info'
+  CHANNEL_INFO_URL = 'https://slack.com/api/channels.info'
 
   # Public: Request an oauth token to allow future requests using oAuth2.
   #
@@ -37,6 +38,10 @@ class SlackAPI
   # Returns a JSON.
   def self.user_info(token, user_id)
     post(USERS_INFO_URL, { token: token, user: user_id })
+  end
+
+  def self.channel_info(token, channel_id)
+    post(CHANNEL_INFO_URL, { token: token, channel: channel_id })
   end
 
   def self.post(url, params)

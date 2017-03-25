@@ -1,3 +1,3 @@
 <%= render 'shared/tabs', active_tab: 'favorites' if current_user %>
-<%= render 'shared/articles_list', articles: @articles, query: @query %>
+<%= render 'shared/articles_list', articles: @articles, query: @query, collection: @collection %>
 <%= render 'shared/open_slide_menu_button' %>
