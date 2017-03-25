@@ -1,0 +1,40 @@
+{
+	"token": "xxxxxxxxxxxxxxxxxxxxxxxx",
+	"team_id": "T1XXXXXX2",
+	"api_app_id": "A4X0X8XX0",
+	"event": {
+		"type": "channel_rename",
+		"channel": {
+			"id": "X0X0X00XX",
+			"is_channel": true,
+			"name": "test-channel-2",
+			"created": "1490361611"
+		},
+		"event_ts": "1490361786.177976"
+	},
+	"type": "event_callback",
+	"authed_users": ["X4X1X9XXX"],
+	"event_id": "Ev4X7XXXXX",
+	"event_time": 1490361786,
+	"controller": "messages",
+	"action": "create",
+	"message": {
+		"token": "xxxxxxxxxxxxxxxxxxxxxxxx",
+		"team_id": "T1XXXXXX2",
+		"api_app_id": "A4X0X8XX0",
+		"event": {
+			"type": "channel_rename",
+			"channel": {
+				"id": "X0X0X00XX",
+				"is_channel": true,
+				"name": "test-channel-2",
+				"created": "1490361611"
+			},
+			"event_ts": "1490361786.177976"
+		},
+		"type": "event_callback",
+		"authed_users": ["X4X1X9XXX"],
+		"event_id": "Ev4X7XXXXX",
+		"event_time": 1490361786
+	}
+}

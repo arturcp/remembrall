@@ -23,7 +23,7 @@
 	"event_time": 1489875645,
 	"controller": "messages",
 	"action": "create",
-	"message": {
+	"slack_event": {
 		"token": "xxxxxxxxxxxxxxxxxxxxxxxx",
 		"team_id": "T1XXXXXX2",
 		"api_app_id": "A4X0X8XX0",
