@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resource :message, only: :create
+  resource :slack_event, only: :create
   get 'team/connect', to: 'teams#connect'
   resources :favorites, only: [:create, :index]
 
