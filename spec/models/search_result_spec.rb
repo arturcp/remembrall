@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 describe SearchResult do
+  let!(:youse) { create(:youse) }
+
   before do
-    create(:youse)
     create(:ebooks)
     create(:culture)
   end
@@ -16,7 +17,11 @@ describe SearchResult do
 
     context 'and the query is provided' do
       before do
-        Article.create!(title: 'my article', user: User.create!(name: 'My precious'))
+        collection = youse.collection
+        channel_id = youse.channel_id
+
+        user = User.create!(collection: collection, name: 'My precious')
+        Article.create!(collection: collection, channel_id: channel_id, title: 'my article', user: user)
       end
 
       subject { SearchResult.new(query: 'precious') }

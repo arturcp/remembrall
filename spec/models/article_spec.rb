@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe Article do
+  let(:collection) { create(:main_collection) }
+  let(:channel) { create(:channel) }
+
   describe '#author' do
     context 'when article has no user' do
       let(:article) { create(:culture) }
@@ -52,20 +55,29 @@ describe Article do
 
     context 'when url is black listed' do
       it 'does not save the article' do
-        expect { Article.build(user_id, URL::BLACK_LIST[0]) }.to change { Article.count }.by(0)
+        expect {
+          Article.build(collection: collection, slack_user_id: user_id,
+            channel_id: channel.id, url: URL::BLACK_LIST[0])
+        }.to change { Article.count }.by(0)
       end
     end
 
     context 'when url is already saved' do
       it 'does not save the article' do
-        expect { Article.build(user_id, youse.url) }.to change { Article.count }.by(0)
+        expect {
+          Article.build(collection: collection, slack_user_id: user_id,
+            channel_id: channel.id, url: youse.url)
+        }.to change { Article.count }.by(0)
       end
     end
 
     context 'when url is valid' do
       context 'and page has images' do
         it 'saves the article in the database' do
-          expect { Article.build(user_id, "http://www.fakeurl.com/#{SecureRandom.uuid}") }.to change { Article.count }.by(1)
+          expect {
+            Article.build(collection: collection, slack_user_id: user_id,
+              channel_id: channel.id, url: "http://www.fakeurl.com/#{SecureRandom.uuid}")
+          }.to change { Article.count }.by(1)
         end
       end
 
@@ -73,14 +85,20 @@ describe Article do
         let(:images) { [] }
 
         it 'saves the article in the database' do
-          expect { Article.build(user_id, "http://www.fakeurl.com/#{SecureRandom.uuid}") }.to change { Article.count }.by(1)
+          expect {
+            Article.build(collection: collection, slack_user_id: user_id,
+              channel_id: channel.id, url: "http://www.fakeurl.com/#{SecureRandom.uuid}")
+          }.to change { Article.count }.by(1)
         end
       end
     end
 
     context 'with tags' do
       it 'includes tags on the article' do
-        article = Article.build(user_id, "http://www.fakeurl.com/#{SecureRandom.uuid}", ['tag1', 'tag2'])
+        article = Article.build(collection: collection, slack_user_id: user_id,
+          channel_id: channel.id, url: "http://www.fakeurl.com/#{SecureRandom.uuid}",
+          hashtags: ['tag1', 'tag2'])
+
         expect(article.tags.map(&:name)).to match_array(['tag1', 'tag2'])
       end
     end
@@ -88,28 +106,41 @@ describe Article do
 
   describe '.from_message' do
     let(:user_id) { 'USR1' }
+    let(:params) { { message: { event: { text: text } } } }
+    let(:message) { message = SlackEvents::Message.new(collection, params) }
+
     before do
       allow(Page).to receive(:read).and_return(Struct.new(:title, :description, :favicon, :images).new('title', 'description', 'fav.ico', []))
     end
 
     context 'when urls are valid' do
+      let(:text) { 'Look how nice! <http://www.google.com.br> and <http://www.heroku.com|heroku>' }
       it 'saves the articles in the database' do
-        message = Message.new('Look how nice! <http://www.google.com.br> and <http://www.heroku.com|heroku>')
-        expect { Article.from_message(message: message, user_id: user_id) }.to change { Article.count }.by(2)
+        expect {
+          Article.from_message(message: message, user_id: user_id,
+            collection: collection, channel: channel)
+        }.to change { Article.count }.by(2)
       end
     end
 
     context 'when url is actually a mention' do
+      let(:text) { 'Talk to me, <@john>' }
+
       it 'saves the articles in the database' do
-        message = Message.new('Talk to me, <@john>')
-        expect { Article.from_message(message: message, user_id: user_id) }.to change { Article.count }.by(0)
+        expect {
+          Article.from_message(message: message, user_id: user_id,
+            collection: collection, channel: channel)
+        }.to change { Article.count }.by(0)
       end
     end
 
     context 'with tags' do
+      let(:text) { 'Look how nice! <http://www.heroku.com|heroku> #bestLink #weRock' }
+
       it 'includes tags on the article' do
-        message = Message.new('Look how nice! <http://www.heroku.com|heroku> #bestLink #weRock')
-        article = Article.from_message(message: message, user_id: user_id).last
+        article = Article.from_message(message: message, user_id: user_id,
+          collection: collection, channel: channel).last
+
         expect(article.tags.map(&:name)).to match_array(['bestLink', 'weRock'])
       end
     end

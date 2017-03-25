@@ -5,6 +5,8 @@ FactoryGirl.define do
     url 'http://www.youse.com.br'
 
     association :user, factory: :john
+    association :collection, factory: :main_collection
+    association :channel
   end
 
   factory :ebooks, class: Article do
@@ -13,11 +15,15 @@ FactoryGirl.define do
     url 'http://www.oreilly.com/programming/free/'
 
     association :user, factory: :jane
+    association :collection, factory: :main_collection
+    association :channel
   end
 
   factory :culture, class: Article do
     title 'Culture Code: What Makes a Company Great?'
     description 'How do you create the ideal workplace? Share the values, rules, principles and tactics your organization follows. Upload your presentation and tag it #CultureCode.'
     url 'http://www.slideshare.net/tag/culturecode'
+    association :collection, factory: :main_collection
+    association :channel
   end
 end
