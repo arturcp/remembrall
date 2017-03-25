@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170317005156) do
+ActiveRecord::Schema.define(version: 20170324172336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,20 @@ ActiveRecord::Schema.define(version: 20170317005156) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "collection_id", null: false
+    t.integer  "channel_id"
   end
 
   create_table "black_list_urls", force: :cascade do |t|
     t.integer "collection_id"
     t.string  "pattern"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string   "collection_id"
+    t.string   "name"
+    t.string   "slack_channel_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "collections", force: :cascade do |t|
