@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Remembrall</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'home', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body data-page="<%= pagejs %>">
+    <%= yield %>
+  </body>
+</html>

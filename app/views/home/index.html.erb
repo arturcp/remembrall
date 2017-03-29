@@ -1,14 +1,192 @@
-<a href="https://slack.com/oauth/authorize?&client_id=156278182467.157031294646&scope=bot">
-  <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
-</a>
+<div id="navbar" class="navbar-fixed scrollspy">
+  <nav  class="purple darken-4">
+    <div class="nav-wrapper container">
+      <ul class="right hide-on-med-and-down">
+        <li><a class="head-link white-text" href="#projects">Teams</a></li>
+        <li><a class="head-link white-text" href="#aboutus">About</a></li>
+        <li><a class="head-link white-text" href="#contactus">Contact</a></li>
+      </ul>
+      <ul class="right side-nav" id="mobile-demo">
+        <li><a class="head-link white-text" href="#projects">Teams</a></li>
+        <li><a class="head-link white-text" href="#aboutus">About</a></li>
+        <li><a class="head-link white-text" href="#contactus">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center remembrall-text">Remembrall</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Collect, organize and share links with your teams</h5>
+      </div>
+      <div class="row center">
+        <a href="https://slack.com/oauth/authorize?&client_id=156278182467.157031294646&scope=bot">
+          <img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+        </a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+  <div class="parallax">
+    <%= image_tag "home/rough-horn-2146181_1280.jpg" %>
+  </div>
+</div>
+<div class="container">
+  <div class="section">
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center" style="color:#333">
+            <i class="fa fa-link" aria-hidden="true"></i>
+          </h2>
+          <h5 class="center">Collect</h5>
+          <p class="light">Save all links shared on Slack and make them searchable by keywords, authors, tags or channels.</p>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center" style="color:#333">
+            <i class="fa fa-hashtag" aria-hidden="true"></i>
+          </h2>
+          <h5 class="center">Organize</h5>
+          <p class="light">Include hashtags to your links to organize them in categories, making it easier to find what you need later.</p>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center" style="color:#333">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </h2>
+          <h5 class="center">Favorite</h5>
+          <p class="light">Don't lose your favorite links. Mark them and have a quick access to them whenever you want.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12" style="color: #333;">
+          “Share your knowledge. It is a way to achieve immortality.”
+        </h5>
+        <p>
+          Dalai Lama XIV
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="parallax">
+    <%= image_tag 'home/mountain-landscape-2031539_1280.jpg' %>
+  </div>
+</div>
 
 <% unless @collections.empty? %>
-  <h2>Collections:</h2>
-  <ul>
-    <% @collections.each do |collection| %>
-      <li>
-        <%= link_to collection.name, articles_search_path(collection) %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="container section scrollspy" id="projects">
+    <div class="section">
+      <br><br>
+      <h4 class="center">Our teams</h4>
+      <br>
+      <% @collections.in_groups_of(2) do |collection_group| %>
+        <div class="row">
+          <% collection_group.compact.each do |collection| %>
+            <div class="col s6">
+              <div class="card">
+                <div class="card-content center-align">
+                  <p>
+                    <%= link_to collection.name, articles_search_path(collection) %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
+
+<div class="parallax-container valign-wrapper section scrollspy" id="aboutus">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="center row col s3">
+        <h3>About</h3>
+      </div>
+      <div class="center row col s12">
+        <p>
+          The name of this project is a homage to Harry Potter's Remembrall, a magical artifact
+          that reminded its users they were forgetting something.
+        </p>
+        <p>
+          &nbsp;
+        </p>
+        <p>
+          Remembrall was born from our struggles to share knowledge among different teams.
+          Our first attempt was to create a channel reserved for link sharing, but
+          it was one more channel to keep track of among so many others that were
+          already taking too much of our attention. We tried other tools, but
+          every now and then we went back to simply putting links on random
+          channels that were going to be seen only by a specific group.
+        </p>
+        <p>
+          It was hard to find a link you shared in the past and even harder to
+          organize the knowledge that was being freely shared every day. Remembrall
+          was the answer to a simple question: if we like to do it on Slack, why
+          not?
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="parallax">
+    <%= image_tag 'home/tree-832079_1280.jpg' %>
+  </div>
+</div>
+<div class="container section scrollspy" id="contactus">
+  <div class="section center-align">
+    <br>
+    <br>
+    <h2>Contact</h2>
+    <div class="row">
+      <div class="col s12">
+        <p>
+          Let's keep in touch. Send any suggestions, doubts or feedback you may have to help me improve Remembrall.
+        </p>
+        <p>
+          <a href='mailto:artu.prado@gmail.com' />artur.prado@gmail.com</a>
+        </p>
+        <p>
+          &nbsp;
+        </p>
+        <ul class="share-buttons">
+          <li>
+            <%= link_to 'https://www.facebook.com/artur.caliendoprado', target: '_blank', title: 'Facebook' do %>
+              <%= image_tag 'home/flat_web_icon_set/inverted/Facebook.png' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'https://twitter.com/artur_caliendo', target: '_blank', title: 'Twitter' do %>
+              <%= image_tag 'home/flat_web_icon_set/inverted/Twitter.png' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'https://plus.google.com/u/0/+ArturCaliendo', target: '_blank', title: 'Google+' do %>
+              <%= image_tag 'home/flat_web_icon_set/inverted/GooglePlus.png' %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="page-footer purple darken-4">
+  <div class="footer-copyright">
+    <div class="container">
+      <p>Copyright © Remebrall</p>
+    </div>
+  </div>
+</footer>
