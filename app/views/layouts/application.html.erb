@@ -3,6 +3,9 @@
   <head>
     <title>Remembrall</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="alternate" type="application/rss+xml" title="Remembrall RSS Feed"
+      href="<%= feed_url(collection: @collection) %>">
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

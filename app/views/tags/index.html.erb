@@ -3,7 +3,7 @@
     <p class="green-text center-align">
       Você está vendo o resultado para a tag <mark>#<%= @tag %></mark>.
       <a data-activates="slide-out">Mude a tag</a> ou
-      <%= link_to 'remova o filtro', articles_search_path(@collection) %>
+      <%= link_to 'remova o filtro', articles_path(@collection) %>
     </p>
   </div>
 <% end %>

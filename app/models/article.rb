@@ -14,7 +14,6 @@ class Article < ApplicationRecord
   has_many :favorites
   has_many :users, through: :favorites
 
-
   def author
     user || User.default
   end

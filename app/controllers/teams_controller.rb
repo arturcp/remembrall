@@ -5,7 +5,7 @@ class TeamsController < ApplicationController
     collection = create_team(params['code'])
 
     if collection
-      redirect_to articles_search_path(collection)
+      redirect_to articles_path(collection)
     else
       render text: 'Não foi possível conectar com o Remembrall'
     end

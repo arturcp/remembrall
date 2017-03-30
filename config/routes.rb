@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create, :index]
 
   scope ':collection' do
-    get 'articles/search(/:query)', to: 'articles#index', as: :articles
+    get 'articles', to: 'articles#index', as: :articles
+    get 'articles/search(/:query)', to: 'articles#index'
     post 'articles/search', to: 'articles#search'
     resources :tags, only: :index
+    get 'feed', to: 'feeds#index', format: 'rss'
   end
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

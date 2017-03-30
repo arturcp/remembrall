@@ -45,4 +45,8 @@ module ApplicationHelper
       params[:action]
     end
   end
+
+  def collection_url_for_feed(current_url)
+    current_url.gsub('/feed', '/articles')
+  end
 end
