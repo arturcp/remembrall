@@ -16,14 +16,14 @@
           <%= render 'layouts/menu_slide_out' %>
         </ul>
 
-        <%= form_tag articles_search_path(@collection) do %>
+        <%= form_tag(articles_path(@collection), method: :get, enforce_utf8: false) do %>
           <div class="header-search-wrapper">
             <i class="material-icons">search</i>
             <input type="text" name="query" class="header-search-input z-depth-2"
               placeholder="Search words, hashtags and channels" id="search" value="<%= @query if @query %>">
           </div>
           <button class="btn dictionary-submit waves-effect waves-light" type="submit"
-            name="action" id="search-button">Search</button>
+            id="search-button">Search</button>
         <% end %>
 
         <%= render 'layouts/menu' %>

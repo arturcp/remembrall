@@ -7,8 +7,7 @@ Rails.application.routes.draw do
 
   scope ':collection' do
     get 'articles', to: 'articles#index', as: :articles
-    get 'articles/search(/:query)', to: 'articles#index'
-    post 'articles/search', to: 'articles#search'
+    # get 'articles/search(/:query)', to: 'articles#index'
     resources :tags, only: :index
     get 'feed', to: 'feeds#index', format: 'rss'
   end

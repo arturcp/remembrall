@@ -36,7 +36,7 @@
     <div class="card-tags right-align">
       <% tags.each do |tag| %>
         <%= link_to tags_path(collection, tag: tag.name) do %>
-          <div class="chip"><%= tag %></div>
+          <div class="chip"><%= highlighted_text("##{tag}", highlighted) %></div>
         <% end %>
       <% end %>
 
