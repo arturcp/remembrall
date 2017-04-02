@@ -3,7 +3,7 @@ module CardHelper
     return text unless text.present? && query.present?
 
     text
-      .gsub(/#{query}/i, "<span class='highlight'>#{query}</span>")
+      .gsub(/#{query}/i, "<mark>#{query}</mark>")
       .html_safe
   end
 end
