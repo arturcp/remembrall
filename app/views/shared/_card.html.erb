@@ -23,10 +23,18 @@
         <%= link_to url, target: :blank do %>
           <%= highlighted_text(description, highlighted) %>
         <% end %>
+
+        <% if local_assigns[:channel] %>
+          <div class="posted-on">
+            <%= link_to tags_path(collection: collection, tag: channel) do %>
+              Posted on <%= image_tag "slack.png" %> <span><%= channel %></span>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="card-tags right-align">
-      <% tags.take(3).each do |tag| %>
+      <% tags.each do |tag| %>
         <%= link_to tags_path(collection, tag: tag.name) do %>
           <div class="chip"><%= tag %></div>
         <% end %>

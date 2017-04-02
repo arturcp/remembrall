@@ -11,7 +11,10 @@ module SlackEvents
       channel = Channel.find_by(slack_channel_id: slack_channel_id)
 
       if channel
-        update_channel_name(channel, channel_name)
+        tag = @collection.owned_tags.find_by(name: channel.name)
+
+        channel.update(name: channel_name)
+        tag&.update(name: channel_name)
       end
     end
 
@@ -25,10 +28,6 @@ module SlackEvents
 
     def slack_channel_id
       event[:channel][:id]
-    end
-
-    def update_channel_name(channel, name)
-      channel.update(name: name)
     end
   end
 end

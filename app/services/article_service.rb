@@ -22,11 +22,12 @@ class ArticleService
   private
 
   def build(url, hashtags = [])
-    content = Page.read(url)
-    user = User.find_by(slack_id: user_id)
     collection = channel.collection
 
     unless Article.exists?(collection: collection, url: url)
+      content = Page.read(url)
+      user = User.find_by(slack_id: user_id)
+
       article = Article.new(
         collection: collection,
         user: user,
@@ -39,7 +40,7 @@ class ArticleService
       )
 
       article.save
-      collection.tag(article, with: hashtags, on: :tags)
+      collection.tag(article, with: "#{channel.name}, #{hashtags.join(', ')}", on: :tags)
 
       article
     end

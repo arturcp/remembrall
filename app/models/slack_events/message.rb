@@ -55,7 +55,7 @@ module SlackEvents
     def channel
       @channel ||= begin
         channel_id = params.dig(:event, :channel)
-        channel = Channel.find_or_create_by(slack_channel_id: channel_id, collection_id: collection.id)
+        channel = Channel.find_or_initialize_by(slack_channel_id: channel_id, collection_id: collection.id)
 
         if channel.new_record?
           data = SlackAPI.channel_info(collection.bot_access_token, channel_id)

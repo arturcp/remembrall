@@ -3,16 +3,17 @@
     <%=
       render 'shared/card',
         id: article.id,
-        url: article.url,
-        title: article.title,
-        description: article.description,
-        image_url: article.image_url,
         author: article.author,
-        highlighted: query,
-        created_at: article.created_at,
+        channel: article.channel.name,
+        collection: collection,
+        description: article.description,
         favorited: !!current_user&.favorited?(article),
-        tags: article.tags,
-        collection: collection
+        highlighted: query,
+        image_url: article.image_url,
+        tags: article.tags_to_display,
+        title: article.title,
+        url: article.url,
+        created_at: article.created_at
     %>
   <% end %>
 </div>

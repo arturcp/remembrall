@@ -32,7 +32,7 @@
   }
 
   @media only screen and (min-width: 993px) {
-    height: 215px;
+    height: 220px;
 
     .card-description {
       height: 145px;
@@ -81,4 +81,18 @@
   position: absolute;
   top: 6px;
   right: 0;
+}
+
+.posted-on {
+  margin-top: 20px;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 4px;
+  }
+
+  span {
+    margin-left: 18px;
+  }
 }

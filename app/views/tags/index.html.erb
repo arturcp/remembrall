@@ -1,9 +1,9 @@
 <% if @tag %>
   <div class="tags-control green lighten-5">
     <p class="green-text center-align">
-      Você está vendo o resultado para a tag <mark>#<%= @tag %></mark>.
-      <a data-activates="slide-out">Mude a tag</a> ou
-      <%= link_to 'remova o filtro', articles_path(@collection) %>
+      You are seeing the result for <mark>#<%= @tag %></mark>.
+      <a data-activates="slide-out">Change the query</a> or
+      <%= link_to 'remove the filter', articles_path(@collection) %>
     </p>
   </div>
 <% end %>

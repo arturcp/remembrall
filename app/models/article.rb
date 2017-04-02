@@ -21,4 +21,8 @@ class Article < ApplicationRecord
   def author_name
     author.name
   end
+
+  def tags_to_display
+    tags.reject { |tag| tag.name == self.channel&.name }.take(3)
+  end
 end
