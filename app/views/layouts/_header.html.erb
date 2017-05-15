@@ -13,7 +13,7 @@
               <% end %>
             </h1>
           </li>
-          <%= render 'layouts/menu_slide_out' %>
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
         </ul>
 
         <%= form_tag(articles_path(@collection), method: :get, enforce_utf8: false) do %>
@@ -31,3 +31,5 @@
     </nav>
   </div>
 </header>
+
+<%= render 'layouts/menu_slide_out' %>
