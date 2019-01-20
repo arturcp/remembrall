@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   private
 
   def search_data
-    @query = params[:query] || ''
+    @query = params.fetch(:query, '')
   end
 
   def tag_search?

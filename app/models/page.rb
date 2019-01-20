@@ -7,7 +7,7 @@ class Page
   # set on the og:image metatag. There are already two opened pull requests on
   # other gems that can prevent this problem:
   #
-  # * link_thumbnailer: hhttps://github.com/gottfrois/link_thumbnailer/pull/106
+  # * link_thumbnailer: https://github.com/gottfrois/link_thumbnailer/pull/106
   # * image_info: https://github.com/gottfrois/image_info/pull/5
   #
   # An example of a breaking page is

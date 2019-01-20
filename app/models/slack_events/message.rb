@@ -36,7 +36,7 @@ module SlackEvents
     end
 
     def message
-      @message ||= event[:text] || ''
+      @message ||= event.fetch(:text, '')
     end
 
     def user_id

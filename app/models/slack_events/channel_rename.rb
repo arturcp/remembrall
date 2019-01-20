@@ -9,13 +9,12 @@ module SlackEvents
 
     def execute
       channel = Channel.find_by(slack_channel_id: slack_channel_id)
+      return unless channel
 
-      if channel
-        tag = @collection.owned_tags.find_by(name: channel.name)
+      tag = @collection.owned_tags.find_by(name: channel.name)
+      tag.update(name: channel_name) if tag
 
-        channel.update(name: channel_name)
-        tag&.update(name: channel_name)
-      end
+      channel.update(name: channel_name)
     end
 
     private
